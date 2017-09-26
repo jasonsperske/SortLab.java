@@ -1,5 +1,12 @@
 package sortlab.models;
 
+/*
+ * A simple Record to be sorted.
+ * This object has a value that a colleciton can be sorted by, a unique ID (to
+ * test if a sort is stable) and a label to make it easier to reason about the
+ * output.
+ */
+
 public final class Record {
   public final int id;
   public final int value;
