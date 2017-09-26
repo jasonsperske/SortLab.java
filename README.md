@@ -2,7 +2,7 @@
 A collection of sorting algorithms implemented in Java with JUnit tests highlighting their strengths and weaknesses
 
 ## Building
-The goal of this project is to provide clearly documented base implementations while requiring as few external resources as possible (this includes build tools, or 3rd party libraries).  To achieve this you will still need to download [JUnit 5](https://github.com/junit-team/junit5) (specifically `junit-jupiter-api`, `junit-jupiter-engine` and `junit-platform-console-standalone`) and [@API Guardian](https://github.com/apiguardian-team/apiguardian).  This project includes the 5.0.0 release of the required libraries in the `/lib` directory.  From the root you should be able to generate a full compile of the entire codebase with this command:
+The goal of this project is to provide clearly documented base implementations while requiring as few external resources as possible (this includes build tools, or 3rd party libraries).  To achieve this you will still need to download [JUnit 5](https://github.com/junit-team/junit5) (specifically `junit-jupiter-api`, `junit-jupiter-engine` and `junit-platform-console-standalone`) and [@API Guardian](https://github.com/apiguardian-team/apiguardian).  This project includes the 5.0.0 release of JUnit and the 1.0.0 release of @API Guardian libraries in the `/lib` directory.  From the root you should be able to generate a full compile of the entire codebase with this command:
 
 Build the source files:
 
