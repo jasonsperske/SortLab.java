@@ -4,22 +4,25 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 import sortlab.models.Record;
+import sortlab.utils.DataGenerator;
+import sortlab.utils.TrackingComparator;
 
 class FatefulSortTests {
-  SortAlgorithmInterface engine = new FatefulSort();
+  SortAlgorithmInterface<Record> engine = new FatefulSort<Record>();
 
   //FatefulSort only operates over a VERY specific range of input values
-
   @Test
   void shouldSortListsThatAlreadySorted() {
-    Record[] unsorted = new Record[3];
-    unsorted[0] = new Record(1, 10, "A");
-    unsorted[1] = new Record(2, 20, "B");
-    unsorted[2] = new Record(3, 30, "C");
+    TrackingComparator<Record> comparator = new TrackingComparator<Record>();
 
-    Record[] sorted = engine.sort(unsorted);
+    Record[] unsorted = DataGenerator.alreadySorted();
+    Record[] sorted = engine.sort(unsorted, comparator);
+
     for(int i = 0; i < unsorted.length; i++) {
       assertEquals(unsorted[i].toString(), sorted[i].toString());
     }
+
+    //assert that no comparisons where made
+    assertEquals(comparator.comparisons, 0);
   }
 }
