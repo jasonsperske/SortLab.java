@@ -30,8 +30,8 @@ public final class Record implements Comparable<Record> {
     return this.label;
   }
 
-  public int compareTo(Record other) {
-    return this.value - other.value;
+  public int compareTo(Record that) {
+    return this.value - that.value;
   }
 
   public String toString() {

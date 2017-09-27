@@ -3,6 +3,7 @@ package sortlab.algorithm;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
+
 import sortlab.models.Record;
 import sortlab.utils.DataGenerator;
 import sortlab.utils.TrackingComparator;
@@ -18,6 +19,7 @@ class FatefulSortTests {
     Record[] sorted = engine.sort(unsorted);
 
     for(int i = 0; i < unsorted.length; i++) {
+      //Testing that not only are ther values equal but that they are the exact same Record
       assertEquals(unsorted[i].toString(), sorted[i].toString());
     }
 
