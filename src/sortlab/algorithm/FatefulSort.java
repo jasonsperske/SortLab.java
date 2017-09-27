@@ -1,8 +1,8 @@
 package sortlab.algorithm;
 
-import sortlab.models.Record;
+import java.util.Comparator;
 
-public final class FatefulSort implements SortAlgorithmInterface {
+public final class FatefulSort<T> implements SortAlgorithmInterface<T> {
   public FatefulSort() {
     //This is not a valid sorting algorithm. It was inspired by
     //https://xkcd.com/1185/ and will only work on data sets that (is if by fate)
@@ -11,7 +11,7 @@ public final class FatefulSort implements SortAlgorithmInterface {
     //checking)
   }
 
-  public Record[] sort(Record[] input) {
+  public T[] sort(T[] input, Comparator<T> comparator) {
     //Behold the fastest sort (for already sorted sets)
     return input;
   }

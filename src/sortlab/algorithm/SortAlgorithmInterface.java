@@ -1,7 +1,7 @@
 package sortlab.algorithm;
 
-import sortlab.models.Record;
+import java.util.Comparator;
 
-public interface SortAlgorithmInterface {
-  public Record[] sort(Record[] input);
+public interface SortAlgorithmInterface<T> {
+  public T[] sort(T[] input, Comparator<T> comparator);
 }

@@ -7,15 +7,31 @@ package sortlab.models;
  * output.
  */
 
-public final class Record {
-  public final int id;
-  public final int value;
-  public final String label;
+public final class Record implements Comparable<Record> {
+  private final int id;
+  private final int value;
+  private final String label;
 
   public Record(int id, int value, String label) {
     this.id = id;
     this.value = value;
     this.label = label;
+  }
+
+  public int getId() {
+    return this.id;
+  }
+
+  public int getValue() {
+    return this.value;
+  }
+
+  public String getLabel() {
+    return this.label;
+  }
+
+  public int compareTo(Record other) {
+    return this.value - other.value;
   }
 
   public String toString() {
