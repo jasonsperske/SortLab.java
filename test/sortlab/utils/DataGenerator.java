@@ -93,9 +93,72 @@ public final class DataGenerator {
     return data;
   }
 
+  //Small version of this for easier debugging when dumping variables
+  public static Record[] alreadySortedSmall() {
+    Record[] data = new Record[9];
+
+    data[ 0] = new Record( 1,  10, "Aa");
+    data[ 1] = new Record( 2,  10, "Ab");
+    data[ 2] = new Record( 3,  10, "Ac");
+    data[ 3] = new Record( 4,  20, "Ba");
+    data[ 4] = new Record( 5,  20, "Bb");
+    data[ 5] = new Record( 6,  20, "Bc");
+    data[ 6] = new Record( 7,  30, "Ca");
+    data[ 7] = new Record( 8,  30, "Cb");
+    data[ 8] = new Record( 9,  30, "Cc");
+
+    return data;
+  }
+
+  //Data in a presorted order without duplicate values to test stability
+  public static Record[] alreadySortedNoDuplicates() {
+    Record[] data = new Record[26];
+
+    data[ 0] = new Record( 1,  10, "Aa");
+    data[ 1] = new Record( 2,  20, "Ba");
+    data[ 2] = new Record( 3,  30, "Ca");
+    data[ 3] = new Record( 4,  40, "Da");
+    data[ 4] = new Record( 5,  50, "Ea");
+    data[ 5] = new Record( 6,  60, "Fa");
+    data[ 6] = new Record( 7,  70, "Ga");
+    data[ 7] = new Record( 8,  80, "Ha");
+    data[ 8] = new Record( 9,  90, "Ia");
+    data[ 9] = new Record(10, 100, "Ja");
+    data[10] = new Record(11, 110, "Ka");
+    data[11] = new Record(12, 120, "La");
+    data[12] = new Record(13, 130, "Ma");
+    data[13] = new Record(14, 140, "Na");
+    data[14] = new Record(15, 150, "Oa");
+    data[15] = new Record(16, 160, "Pa");
+    data[16] = new Record(17, 170, "Qa");
+    data[17] = new Record(18, 180, "Ra");
+    data[18] = new Record(19, 190, "Sa");
+    data[19] = new Record(20, 200, "Ta");
+    data[20] = new Record(21, 210, "Ua");
+    data[21] = new Record(22, 220, "Va");
+    data[22] = new Record(23, 230, "Wa");
+    data[23] = new Record(24, 240, "Xa");
+    data[24] = new Record(25, 250, "Ya");
+    data[25] = new Record(26, 260, "Za");
+
+    return data;
+  }
+
   //Data in a in reverse order with duplicate values to test stability
   public static Record[] reverseSorted() {
     List<Record> list = Arrays.asList(alreadySorted());
+    Collections.reverse(list);
+    return list.toArray(new Record[0]);
+  }
+
+  public static Record[] reverseSortedSmall() {
+    List<Record> list = Arrays.asList(alreadySortedSmall());
+    Collections.reverse(list);
+    return list.toArray(new Record[0]);
+  }
+
+  public static Record[] reverseSortedNoDuplicates() {
+    List<Record> list = Arrays.asList(alreadySortedNoDuplicates());
     Collections.reverse(list);
     return list.toArray(new Record[0]);
   }
