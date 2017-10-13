@@ -1,7 +1,7 @@
 package sortlab.algorithm;
 
+import sortlab.algorithm.util.Helper;
 import java.util.Comparator;
-import java.lang.reflect.Array;
 
 public final class BubbleSort<T> implements SortAlgorithmInterface<T> {
   public int passes = 0; //An array can't have more than Integer.MAX_VALUE-1
@@ -12,7 +12,7 @@ public final class BubbleSort<T> implements SortAlgorithmInterface<T> {
   public long swaps = 0; //In the worst case there will be n^2 swaps so this
                          //value can easily exceed Integer.MAX_VALUE
   private final Comparator<T> comparator;
-  private final Class<T> of;
+  private Helper<T> helper;
 
   public BubbleSort(Class<T> of, Comparator<T> comparator) {
     //A simple sorting algorithm that repeatedly steps through the list to be
@@ -27,18 +27,14 @@ public final class BubbleSort<T> implements SortAlgorithmInterface<T> {
 
     //Source - https://en.wikipedia.org/wiki/Bubble_sort
     this.comparator = comparator;
-
-    this.of = of;
+    this.helper = new Helper<T>(of);
   }
 
   public T[] sort(T[] input) {
     //Create a copy of the input array (we will be modifying it, this can occure
     //in place, but a copy is cleaner to trace when debugging)
     int size = input.length;
-
-    @SuppressWarnings("unchecked")
-    T[] sorted = (T[]) Array.newInstance(of, size);
-    System.arraycopy(input, 0, sorted, 0, size);
+    T[] sorted = helper.copyOf(input);
 
     //This sort will be compled by sweeping over the array until it can get
     //through a full pass without swapping
