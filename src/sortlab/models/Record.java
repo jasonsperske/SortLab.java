@@ -2,7 +2,7 @@ package sortlab.models;
 
 /*
  * A simple Record to be sorted.
- * This object has a value that a colleciton can be sorted by, a unique ID (to
+ * This object has a value that a collection can be sorted by, a unique ID (to
  * test if a sort is stable) and a label to make it easier to reason about the
  * output.
  */
