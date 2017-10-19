@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 import sortlab.models.Record;
+import sortlab.models.RecordValueASC;
 import sortlab.utils.DataGenerator;
 import sortlab.utils.TrackingComparator;
 
@@ -12,7 +13,7 @@ class FatefulSortTests {
   //FatefulSort only operates over a VERY specific range of input values
   @Test
   void shouldSortListsThatAlreadySorted() {
-    TrackingComparator<Record> comparator = new TrackingComparator<Record>();
+    TrackingComparator<Record> comparator = new TrackingComparator<Record>(new RecordValueASC());
     SortAlgorithmInterface<Record> engine = new FatefulSort<Record>(comparator);
 
     Record[] unsorted = DataGenerator.alreadySorted();

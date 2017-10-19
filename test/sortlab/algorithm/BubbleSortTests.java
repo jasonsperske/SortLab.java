@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 import sortlab.models.Record;
+import sortlab.models.RecordValueASC;
 import sortlab.utils.DataGenerator;
 import sortlab.utils.TrackingComparator;
 
@@ -14,7 +15,7 @@ class BubbleSortTests {
   @Test
   void shouldSortListsThatAlreadySorted() {
     //BubbleSort performs best with an input array that are already sorted
-    TrackingComparator<Record> comparator = new TrackingComparator<Record>();
+    TrackingComparator<Record> comparator = new TrackingComparator<Record>(new RecordValueASC());
     BubbleSort<Record> engine = new BubbleSort<Record>(Record.class, comparator);
 
     Record[] unsorted = DataGenerator.alreadySorted();
@@ -37,7 +38,7 @@ class BubbleSortTests {
   @Test
   void shouldSortListsThatReversed() {
     //BubbleSort performs worst with an input array that is completly reversed.
-    TrackingComparator<Record> comparator = new TrackingComparator<Record>();
+    TrackingComparator<Record> comparator = new TrackingComparator<Record>(new RecordValueASC());
     BubbleSort<Record> engine = new BubbleSort<Record>(Record.class, comparator);
 
     Record[] unsorted = DataGenerator.reverseSortedNoDuplicates();
