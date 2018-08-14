@@ -34,10 +34,7 @@ public final class Heapsort<T> implements SortAlgorithmInterface<T> {
     // [42, 19, 36, 17, 1]
 
     //These two steps can be completed at the same time and in-place on the
-    //input array through a series of "fixes" (swaps).  To help you trace
-    //through the execution of this algorithm, however, I split these steps up.
-    //This approach doesn't change the speed of the algorithm but does increase
-    //the storage.
+    //input array through a series of "fixes" (swaps).
 
     //Source - https://en.wikipedia.org/wiki/Heapsort
     this.comparator = comparator;
@@ -45,8 +42,60 @@ public final class Heapsort<T> implements SortAlgorithmInterface<T> {
   }
 
   public T[] sort(T[] input) {
-    T[] heap = helper.copyOf(input);
-    
+    T[] heap = max_heapify(input);
     return heap;
+  }
+
+  private Node<T> max_heapify(T[] input) {
+    T[] heapified = helper.copyOf(input);
+    int index = heapified.length;
+    if (index > 1) {
+      // Something to actually sort
+      if (index % 2 == 0) {
+        // Special case, a left only node at the end
+        T parent = parent(index - 1, heapified);
+        T left = input[index - 1];
+        int comparson = comparator.compare()
+      }
+    }
+
+
+    return heapified;
+  }
+
+  private int getLeftChildIndex(int parentIndex) {
+    return (2 * parentIndex) + 1;
+  }
+
+  private int getRightChildIndex(int parentIndex) {
+    return (2 * parentIndex) + 2;
+  }
+
+  private int getParentIndex(int childIndex) {
+    return (childIndex - 1) / 2;
+  }
+
+  private boolean hasLeftChild(int index, int size) {
+    return getLeftChildIndex(index) < size;
+  }
+
+  private boolean hasRightChild(int index, int size) {
+    return getRightChildIndex(index) < size;
+  }
+
+  private boolean hasParent(int index) {
+    return getParentIndex(index) >= 0;
+  }
+
+  private T leftChild(int index, T[] items) {
+    return items[getLeftChildIndex(index)];
+  }
+
+  private T rightChild(int index, T[] items) {
+    return items[getRightChildIndex(index)];
+  }
+
+  private T parent(int index, T[] items) {
+    return items[getParentIndex(index)];
   }
 }
