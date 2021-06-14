@@ -21,8 +21,8 @@ public final class BubbleSort<T> implements SortAlgorithmInterface<T> {
     //needed, which indicates that the list is sorted.
 
     //Although the algorithm is simple, it is too slow and impractical for most
-    //problems even when compared to insertion sort.[2] It can be practical if
-    //the input is usually in sorted order but may occasionally have some
+    //problems even when compared to insertion sort. It can be practical if the
+    //input is usually in sorted order but may occasionally have some
     //out-of-order elements nearly in position.
 
     //Source - https://en.wikipedia.org/wiki/Bubble_sort
@@ -40,7 +40,7 @@ public final class BubbleSort<T> implements SortAlgorithmInterface<T> {
     //through a full pass without swapping
     boolean swapped;
     do {
-      //Start with the assumption that nothting needs to be swapped
+      //Start with the assumption that nothing needs to be swapped
       swapped = false;
       for(int n = 0; n < (size-1); n++) {
         int comparison = comparator.compare(sorted[n], sorted[n+1]);

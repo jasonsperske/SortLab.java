@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import sortlab.models.IntegerRecord;
 import sortlab.models.Record;
 
 public final class DataGenerator {
@@ -161,5 +162,33 @@ public final class DataGenerator {
     List<Record> list = Arrays.asList(alreadySortedNoDuplicates());
     Collections.reverse(list);
     return list.toArray(new Record[0]);
+  }
+
+  //Small version of this for easier debugging when dumping variables
+  //Based on https://en.wikipedia.org/wiki/Heapsort#Example
+  public static IntegerRecord[] exampleIntegers() {
+    return new IntegerRecord[] {
+      new IntegerRecord(6),
+      new IntegerRecord(5),
+      new IntegerRecord(3),
+      new IntegerRecord(1),
+      new IntegerRecord(8),
+      new IntegerRecord(7),
+      new IntegerRecord(2),
+      new IntegerRecord(4)
+    };
+  }
+
+  public static IntegerRecord[] sortedASCIntegers() {
+    return new IntegerRecord[] {
+      new IntegerRecord(1),
+      new IntegerRecord(2),
+      new IntegerRecord(3),
+      new IntegerRecord(4),
+      new IntegerRecord(5),
+      new IntegerRecord(6),
+      new IntegerRecord(7),
+      new IntegerRecord(8)
+    };
   }
 }

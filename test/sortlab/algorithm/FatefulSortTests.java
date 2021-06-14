@@ -20,11 +20,12 @@ class FatefulSortTests {
     Record[] sorted = engine.sort(unsorted);
 
     for(int i = 0; i < unsorted.length; i++) {
-      //Testing that not only are ther values equal but that they are the exact same Record
+      //Testing that not only are the values equal but that they are the exact same Record
       assertEquals(unsorted[i].toString(), sorted[i].toString());
     }
 
-    //assert that no comparisons where made
+    //assert that no comparisons where made (as my son calls it, the only "O(0)"
+    //algorithm)
     assertEquals(comparator.comparisons, 0);
   }
 }
