@@ -179,6 +179,19 @@ public final class DataGenerator {
     };
   }
 
+  public static IntegerRecord[] exampleIntegerHeap() {
+    return new IntegerRecord[] {
+      new IntegerRecord(8),
+      new IntegerRecord(6),
+      new IntegerRecord(7),
+      new IntegerRecord(4),
+      new IntegerRecord(5),
+      new IntegerRecord(3),
+      new IntegerRecord(2),
+      new IntegerRecord(1)
+    };
+  }
+
   public static IntegerRecord[] sortedASCIntegers() {
     return new IntegerRecord[] {
       new IntegerRecord(1),
